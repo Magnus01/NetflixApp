@@ -1,8 +1,8 @@
 export default function moviesReducer(state = {
 
-
-    //mine
       movieslist:"",
+                                          searchUrl:"",
+                                          data:"",
 
   }, action) {
 
@@ -12,9 +12,9 @@ state = {...state, searchUrl : action.payload};
 break;
 
 /////////////Top TV picks
-case "TOPTV":
+case "DATA":
 
-state = {...state, movieslist: action.payload};
+state = {...state, data: action.payload};
 break;
 
 }

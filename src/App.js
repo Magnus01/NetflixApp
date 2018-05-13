@@ -6,7 +6,7 @@ import MovieOfTheDay from './comp/TopSection/MovieOfTheDay';
 import ShowSlider from './comp/BottomSection/SimpleMapped';
 import { connect } from "react-redux";
 
-import {searchUrl } from '../actions/movies';
+import {searchUrl } from './actions/movies';
 
 import './App.css';
 
@@ -15,8 +15,8 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            searchTerm:"",
-            searchUrl:""
+            searchTerm:""
+            // searchUrl:""
         }
 
         this.handleChange.bind(this)
@@ -27,7 +27,9 @@ class App extends React.Component {
         if(this.state.searchTerm !== "") //event.key === 'Enter' &&
         {
             var searchUrl =  "search/multi?query=" + this.state.searchTerm + "&api_key=166624c030b91c943c397020f20525b4";
-            this.props.searchUrl();
+            this.setState({
+                searchUrl
+            });
 
         }
     }
@@ -50,7 +52,7 @@ class App extends React.Component {
                 <Profile />
               </header>
               <MovieOfTheDay />
-              <ShowSlider title="Search Results" url={this.props.movies.searchUrl}/>
+              <ShowSlider title="Search Results" url={this.state.searchUrl}/>
             </div>
         )
     }
