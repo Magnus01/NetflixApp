@@ -1,11 +1,9 @@
 import React from 'react';
-import Logo from './comp/Header/Logo';
-import Navigation from './comp/Header/Navigation';
-import Profile from './comp/Header/Profile';
-import MovieOfTheDay from './comp/TopSection/MovieOfTheDay';
+
 import ShowSlider from './comp/BottomSection/SimpleMapped';
+import MovieToday from './comp/TopSection/MovieOfTheDay';
 import './App.css';
-// debounce   , Library => lodash
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -38,13 +36,12 @@ class App extends React.Component {
     return (
       <div>
         <header className="Header">
-          <Logo />
-          <Navigation />
+      <MovieToday/>
           <div id="search" className="Search">
             <input onChange={this.handleChange} onKeyUp={this.handleKeyUp} value={this.state.searchTerm} placeholder="Search for a title..."/>
           </div>
 
-          <Profile />
+
         </header>
 
 
